@@ -1,0 +1,540 @@
+/* ===== CORES E CONFIGURAÇÕES GERAIS ===== */
+:root {
+    --fundo: #fffaf3;
+    --creme: #f3e7d8;
+    --branco: #ffffff;
+    --marrom: #4b2e24;
+    --marrom-escuro: #2e1b15;
+    --caramelo: #8b4928;
+    --texto: #493c35;
+    --texto-suave: #6b5a50;
+    --borda: #d9c5b3;
+    --sombra: 0 12px 30px rgb(46 27 21 / 8%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    color: var(--texto);
+    background-color: var(--fundo);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--marrom);
+    line-height: 1.2;
+}
+
+h1,
+h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin-inline: auto;
+}
+
+.secao {
+    padding-block: 88px;
+}
+
+.destaque {
+    margin-bottom: 14px;
+    color: var(--caramelo);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.titulo-secao {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.titulo-secao > p:last-child {
+    color: var(--texto-suave);
+}
+
+/* Navegação pelo teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--caramelo);
+    outline-offset: 5px;
+}
+
+/* ===== CABEÇALHO E MENU COM FLEXBOX ===== */
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--fundo);
+    border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 88px;
+    padding-block: 16px;
+}
+
+.logo {
+    color: var(--marrom);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--caramelo);
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    list-style: none;
+}
+
+.menu a {
+    display: inline-block;
+    padding-block: 6px;
+    border-bottom: 2px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+    color: var(--caramelo);
+    border-bottom-color: var(--caramelo);
+}
+
+/* ===== APRESENTAÇÃO COM FOTO DE FUNDO ===== */
+.inicio {
+    display: flex;
+    align-items: center;
+    min-height: 580px;
+    padding-block: 90px;
+
+    /* Mantém um fundo legível se a foto não carregar */
+    background-color: var(--marrom-escuro);
+
+    /* A camada escura ajuda na leitura do texto */
+    background-image:
+        linear-gradient(
+            rgb(46 27 21 / 78%),
+            rgb(46 27 21 / 78%)
+        ),
+        url("images/cafe.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.inicio-conteudo {
+    text-align: center;
+}
+
+.inicio .destaque {
+    color: #e8c39f;
+}
+
+.inicio h1 {
+    max-width: 800px;
+    margin: 0 auto 24px;
+    color: var(--fundo);
+    font-size: clamp(2.8rem, 7vw, 5rem);
+}
+
+.inicio-conteudo > p:not(.destaque) {
+    max-width: 580px;
+    margin: 0 auto 32px;
+    color: var(--creme);
+    font-size: 1.1rem;
+}
+
+/* ===== BOTÕES E LINKS ===== */
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 14px 26px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: var(--branco);
+    background-color: var(--caramelo);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.botao:hover:not(:disabled) {
+    background-color: var(--marrom);
+    transform: translateY(-3px);
+}
+
+.inicio .botao {
+    color: var(--marrom-escuro);
+    background-color: var(--creme);
+}
+
+.inicio .botao:hover {
+    background-color: var(--branco);
+}
+
+.inicio a:focus-visible {
+    outline-color: var(--creme);
+}
+
+.link-texto {
+    display: inline-block;
+    color: var(--caramelo);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    transition: color 0.2s;
+}
+
+.link-texto:hover {
+    color: var(--marrom-escuro);
+}
+
+/* ===== SOBRE COM CSS GRID ===== */
+.sobre-conteudo {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 56px;
+}
+
+.sobre-destaque {
+    padding: 32px;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background-color: var(--creme);
+}
+
+.sobre-destaque h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.8rem;
+}
+
+.ambiente {
+    margin-bottom: 24px;
+}
+
+.foto-ambiente {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.ambiente figcaption {
+    margin-top: 8px;
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+}
+
+/* ===== CARDÁPIO E ESPAÇO COM CSS GRID ===== */
+.cardapio {
+    background-color: var(--creme);
+}
+
+.grade-cardapio {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.grade-espaco {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    padding: 30px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background-color: var(--branco);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--caramelo);
+    box-shadow: var(--sombra);
+}
+
+.card p {
+    margin-bottom: 0;
+    color: var(--texto-suave);
+}
+
+.grade-espaco .card {
+    border-top: 4px solid var(--caramelo);
+    background-color: var(--fundo);
+}
+
+/* ===== CONTATO E FORMULÁRIO ===== */
+.contato {
+    background-color: var(--creme);
+}
+
+.contato-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+    gap: 64px;
+}
+
+/* Permite que as colunas encolham em telas menores */
+.sobre-conteudo > *,
+.contato-conteudo > * {
+    min-width: 0;
+}
+
+address {
+    margin-block: 24px 16px;
+    font-style: normal;
+}
+
+.formulario {
+    padding: 32px;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background-color: var(--branco);
+    box-shadow: var(--sombra);
+}
+
+#aviso-formulario {
+    padding: 14px;
+    border-left: 3px solid var(--caramelo);
+    border-radius: 4px;
+    color: var(--texto-suave);
+    background-color: var(--fundo);
+    font-size: 0.9rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    color: var(--marrom);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    color: var(--texto);
+    background-color: var(--fundo);
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: var(--texto-suave);
+    opacity: 1;
+}
+
+.campo textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.formulario .botao {
+    width: 100%;
+}
+
+.botao:disabled {
+    color: var(--texto);
+    background-color: var(--creme);
+    border-color: var(--borda);
+    cursor: not-allowed;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape {
+    padding-block: 32px;
+    color: var(--creme);
+    background-color: var(--marrom-escuro);
+    text-align: center;
+}
+
+.rodape p {
+    margin-bottom: 8px;
+}
+
+.rodape p:last-child {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+}
+
+/* ===== TABLETS ===== */
+@media (max-width: 900px) {
+    .cabecalho-conteudo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    html {
+        scroll-padding-top: 150px;
+    }
+
+    .sobre-conteudo,
+    .contato-conteudo {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .grade-cardapio,
+    .grade-espaco {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .secao {
+        padding-block: 64px;
+    }
+}
+
+/* ===== CELULARES ===== */
+@media (max-width: 600px) {
+    .cabecalho {
+        position: static;
+    }
+
+    html {
+        scroll-padding-top: 20px;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .menu {
+        justify-content: center;
+        gap: 8px 16px;
+    }
+
+    .menu a {
+        font-size: 0.85rem;
+    }
+
+    .inicio {
+        min-height: 480px;
+        padding-block: 64px;
+    }
+
+    .inicio-conteudo > p:not(.destaque) {
+        font-size: 1rem;
+    }
+
+    .grade-cardapio,
+    .grade-espaco {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-destaque,
+    .formulario,
+    .card {
+        padding: 24px;
+    }
+
+    .secao {
+        padding-block: 48px;
+    }
+}
+
+/* ===== ACESSIBILIDADE: MENOS MOVIMENTO ===== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .card:hover,
+    .botao:hover:not(:disabled) {
+        transform: none;
+    }
+}
